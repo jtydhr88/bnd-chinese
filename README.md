@@ -1,14 +1,14 @@
 # Bnd Chinese
 1. Release
-* Introduction (Terry)
-* A Bit of History (Terry)
-* Transient Dependencies(Joye)
-* Packages（Joye）
-* BTool(Joye)
-* Eclipse(Joye)
-* Inside the OSGi Alliance(Joye)
-* Bndtools(Joye)
-* Manual(Joye)
+ * Introduction (Terry)
+ * A Bit of History (Terry)
+ * Transient Dependencies(Joye)
+ * Packages（Joye）
+ * BTool(Joye)
+ * Eclipse(Joye)
+ * Inside the OSGi Alliance(Joye)
+ * Bndtools(Joye)
+ * Manual(Joye)
 2. Introduction
 3. How to install bnd
 4. Guided Tour
