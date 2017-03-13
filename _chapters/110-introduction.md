@@ -5,15 +5,23 @@ layout: default
 
 OSGi is arguably one of the best specifications in the Java world. It is a no compromise specification for a component framework that is based on what we today know are the best practices. It extends the type safety first model of Java to hold true over time when the modules morph into sometimes unrecognizable shapes. It provides a solid foundation to build applications that can run anywhere, the original promise of Java; offering these impressive features while remaining as simple as possible, albeit no simpler.
 
+OSGi可以说是Java世界中最好的规范之一。基于我们现在所知最好的实践，它是一个对于模块框架的no compromise规范。它拓展了Java类型安全模型以应对随着时间的推移，当模型发生无法识别的状态时确保其是真实有效的。它为构建可以在任何地方运行的程序（Java最初的承诺）提供了坚实的基础。它在提供这些令人印象深刻的特点的同时尽可能保证简单，虽然没有更简单。
+
 For some, the previous paragraph may come as a surprise because OSGi has had its share of people complaining about it. Surprisingly, the biggest complaint is often the Class Not Found Exception, which is always a perfect sign that people try to push a round peg in a too small square hole, and with all their might. You only see those exceptions when you're not doing engineering but when you are hacking. If you run head on into the walls that OSGi installs and it is giving you a headache, then just look around and find the elegant and easy to use doors: services.
+
+对于一些人来说，上一段可能会带来惊喜，因为已经有人抱怨它了。不过令人惊喜的是，关于OSGi最大的抱怨通常是Class Not Found Exception。这通常是个完美的信号，有人试图以他们全部的力量去想将一个圆桩推进一个过小的方形的洞里。如果你是去hack它而不是真的去做一些工程的话，你只会看到那些异常。如果你一头扎进OSGi Install所堆砌的墙中，你首先会头疼，然后看看周围，会发现那些优雅且易于使用的入口：Services（服务）。
 
 Though this is all true, I do not claim that OSGi is trivial to use; triviality has a way to clash with large system that must evolve over many years. The software profession has a brutal industry that lures us with the siren song of a 'few hours work' to devour us while trying to main gigantic hairballs. As Fred Brooks already said so many years ago in his seminal book 'The Mythical Man Month', there is no silver bullet. Even OSGi will require hard work to build evolvable systems. And though we cannot make building complex systems easy, bnd can at least make it easier (and considerably more fun).
 
-## A Bit of History
+虽然这些都是真的，我并不是说OSGi是不重要的使用；那些演化多年巨型的系统，碎片化必然是造成崩溃的原因之一。软件行业是一个残酷的产业that lures us with the siren song of a ‘few hours work’ to devour us while trying to main gigantic hairballs。正如弗雷德·布鲁克斯在多年前在他的开创性着作“人月神话”中所说的：，没有银弹。即使是OSGi也需要艰苦的工作才能构建出可演化的系统。虽然我们，bnd，不能使构建复杂系统变成得简单，但至少可以尝试让它更简单（且赋予更多的乐趣）。
+
+## A Bit of History 一些历史
 
 When we started building the OSGi specifications around 1998 it became clear we needed metadata to describe the bundles. We chose the manifest since this was already a well defined resource in the JAR, why invent the wheel? Actually, it was Anselm Baird, a Sun employee at the time, who had come up with this idea in his Java Embedded Server (JES). Basically, the manifest was a property file with benefits. We still consider this choice for embedded metadata an excellent idea. Looking at Maven where the metadata is separated over a surprising number of files. It is clear that the reduction in the number of files and potential errors caused by out-of-sync metadata is quite large. My favorite example of this additional complexity is when the SHA1 files necessary in Maven were also signed, an easy mistake but induced by unnecessary complexity. An OSGi bundle is a completely self described artifact.
 
-### Transient Dependencies
+当我们在1998年开始构建OSGi规范时，我们需要用元数据（metadata）来描述bundle。我们选择了Manifest，因为它已经是JAR中一个定义明确的资源，我们为什么要重新发明车轮呢？事实上，当时Sun员工的Anselm Baird，他在他的Java嵌入式服务器（JES）中提出了这个想法。基本上来说，清单（Manifest）是一个属性文件同时它有许多好处。直至今日，我们仍然认为嵌入式元数据的这个选择是一个好主意。看看Maven吧，其中元数据需要在惊人数量的文件中分离。显然，由不同步元数据引起的文件数量和潜在错误的减少是相当大的。我个人最喜欢的这个额外复杂性的例子是当Maven中需要的SHA1文件也被签名，一个容易的错误，但由不必要的复杂性引起。 而OSGi bundle则是一个完全自我描述的组件。
+
+### Transient Dependencies 短暂的依赖
 So who got bnd started? Well, when we wrote our bundles in the dawn of the new millenium we quickly discovered that transient dependencies, well, eh, sucked. Several of us had great experience in Object Oriented design, and though objects clearly had become mainstream they frustratingly had not provided the level of reusability that some had dreamed of. As Brian Foote shows, we thought we were building shiny castles but in the end built a big ball of mud. Where our predecessors of the structured programming era always hammered on low coupling and high cohesion we had ignored their wise lessons and got ourselves tangled up in a nice mess. Trying to reuse a class too often dragged in more unwanted stuff than the cat does in the whole year.
 
 The advantage of Java was that it had found an elegant solution to the scourge of transient dependencies: Java interfaces. An interface elegantly broke transitive dependencies while maintaining type safety at the cost of an indirection. A cost anyone should gladly bear for hairballs are quite distasteful. Surprisingly, while Java offered us this elegant solution to break transitive dependencies, most people in our industry were blindly committing themselves to the same route, just on another level, which actually would make the consequences even worse.
