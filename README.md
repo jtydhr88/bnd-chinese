@@ -1,6 +1,6 @@
 # Bnd Chinese
 1. Release
-2. Introduction(Terry)
+2. Introduction(@jtydhr88)
  * Introduction (Terry)
  * A Bit of History(Terry)
  * Transient Dependencies(Joye)
