@@ -1,6 +1,7 @@
 # Bnd Chinese
 1. Release
- * Introduction(Terry)
+2. Introduction(Terry)
+ * Introduction (Terry)
  * A Bit of History(Terry)
  * Transient Dependencies(Joye)
  * Packages(Joye)
@@ -9,14 +10,14 @@
  * Inside the OSGi Alliance(Joye)
  * Bndtools(Joye)
  * Manual(Joye)
-2. Introduction
+3. How to install bnd
  * How to install bnd(Terry)
  * Command Line(Terry)
  * Libraries(Terry)
  * Source Code(Terry)
  * Manual(Terry)
  * Communication Settings(Terry)
-3. How to install bnd
+4. Guided Tour
  * Guided Tour(Terry)
  * Workspace(Terry)
  * Naming(Terry)
@@ -25,7 +26,7 @@
  * Project(Terry)
  * Setup(Terry)
  * Changing the Layout(Terry)
-4. Guided Tour
+5. Guided Tour Workspace & Projects
  * Guided Tour Workspace & Projects(Joye)
  * Wrapping(Joye)
  * Simplistic(Joye)
@@ -52,13 +53,11 @@
  * System Commands(Joye)
  * Upto(Joye)
  * Workflow(Joye)
-5. Guided Tour Workspace & Projects
+6. Concepts
  * Concepts(Joye)
  * Bundles(Joye)
  * Components(Joye)
  * The Workspace(Joye)
-6. Concepts
- * Workspaces(Terry)
 7. Best practices
  * Workspace(Terry)
 8. Build
