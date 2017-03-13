@@ -1,6 +1,6 @@
 # Bnd Chinese
-1. Release
-2. Introduction([@Terry](https://github.com/jtydhr88/))
+1. [Release](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/100-release.md)
+2. [Introduction](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/110-introduction.md)
  * Introduction([@Terry](https://github.com/jtydhr88/))
  * A Bit of History([@Terry](https://github.com/jtydhr88/))
  * Transient Dependencies(Joye)
@@ -10,14 +10,14 @@
  * Inside the OSGi Alliance(Joye)
  * Bndtools(Joye)
  * Manual(Joye)
-3. How to install bnd
+3. [How to install bnd](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/120-install.md)
  * How to install bnd([@Terry](https://github.com/jtydhr88/))
  * Command Line([@Terry](https://github.com/jtydhr88/))
  * Libraries([@Terry](https://github.com/jtydhr88/))
  * Source Code([@Terry](https://github.com/jtydhr88/))
  * Manual([@Terry](https://github.com/jtydhr88/))
  * Communication Settings([@Terry](https://github.com/jtydhr88/))
-4. Guided Tour
+4. [Guided Tour](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/123-tour-workspace.md)
  * Guided Tour([@Terry](https://github.com/jtydhr88/))
  * Workspace([@Terry](https://github.com/jtydhr88/))
  * Naming([@Terry](https://github.com/jtydhr88/))
