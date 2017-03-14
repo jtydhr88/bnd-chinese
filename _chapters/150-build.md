@@ -5,24 +5,44 @@ layout: default
 ---
 This chapter lays out the rules of the file system for bnd projects. It discusses the workspace layout and the projects layout as well as the properties.
 
+本章将介绍bnd项目的文件目录的规则。同时讨论workspace结构和项目结构以及属性。
+
 ## Workspace
 A Workspace is a single directory with all its sub-directories and their files, similar to a git workspace. The core idea of the workspace is that it is easy to move around, that is, it allows the use of relative file names. It also prevents a lot of potential problems that occur when you allow projects to be anywhere on the file system. KISS!
 
+Workspace是一个包含所有子目录及其文件的单个目录，类似于git workspace。workspace的核心思想是易于移动，也就是说，它允许使用相对文件名。它还可以防止在允许项目位于文件系统的任何位置时发生的许多潜在问题。
+
 Workspaces should be named according to the bundle symbolic names of its projects. Using such a naming strategy will simplify finding the correct namespace given a bundle symbolic name. 
 
-A bndlib workspace is a _valid_ workspace when it contains a `cnf` file. If this is a text file, its content is read and interpreted as a path to the `cnf` directory (which can again be a path to a cnf directory, ad infinitum). The retrieved path is retrieved and trimmed after which it is resolved relative to its parent directory.   
+workspace应根据其项目的bundle标识符命名。使用这样的命名策略可以简化找到给定bundle符号名称的正确命名空间。
+
+A bndlib workspace is a _valid_ workspace when it contains a `cnf` file. If this is a text file, its content is read and interpreted as a path to the `cnf` directory (which can again be a path to a cnf directory, ad infinitum). The retrieved path is retrieved and trimmed after which it is resolved relative to its parent directory.
+
+如果一个文件夹包含了cnf文件，那么它就是一个可用的bndlib workspace。如果它是一个文本文件，它的内容将被读取并解析为cnf目录的路径（也可以是到cnf目录，无限制的路径）。检索并修剪这个路径，然后相对于其父目录解析它。
 
 However, the advised model is to use a directory with a `cnf/build.bnd` file. The purpose of the `cnf` directory is to provide a place for shared information. Though this includes bndlib setup information, it also can be used to define for example shared licensing, copyright, and vendor headers for your organization.
 
+但是，我们建议是使用含有cnf / build.bnd文件的目录。 cnf目录的目的是为那些应该被共享信息提供一个地方。虽然这包括bndlib设置信息，它也可以用于定义例如您的组织的共享许可，版权和供应商信息。
+
 The `cnf` directory can have an `ext` directory, this directory contains any extensions to bnd.
 
-To cache some intermediate files, bndlib will create a `cnf/cache/` directory, this file should not be under source control. E.g. in Git it should be defined in the `.gitignore` file. 
+`cnf`目录可以有一个`ext`目录，这个目录所有bnd的拓展项。
+
+To cache some intermediate files, bndlib will create a `cnf/cache/` directory, this file should not be under source control. E.g. in Git it should be defined in the `.gitignore` file.
+
+为了缓存一些临时的文件，bndlib将创建一个`cnf/cache/`目录，这个文件不应该在版本控制下。例如。你应该在Git的`.gitignore`文件中将其排除。 
 
 The root of the workspace is generally used to hold other files. For example the `.git` directory for Git, or gradle and ant files for continuous integration. However, designers that add functionality to the workspace shoudl strive to minimize the clutter in the root. For example, the bnd gradle support adds a few files to the root but these link to a `cnf/gradle` directory for their actual content.
 
+workspace的根目录通常用于保存其他文件。例如Git的`.git`目录，或用于集成的gradle和ant文件。但是，向workspace添加功能的设计人员应努力尽量减少根目录中的混乱。例如，bnd gradle支持向根目录添加了一些文件，但是这些文件将链接到`cnf/gradle`目录以获取其实际的内容
+
 Other directories in the workspace represent _projects_. The name of the project is the bundle symbolic name of the bundle that it produces (or the prefix of the bundle symbolic name when it produces multiple bundles).
 
+workspace中的其他目录表示projects。projects的名称是它生成的bundle的bundle符号名（或者在生成多个bundle时的bundle符号名的前缀）。
+
 Overall, this gives us the following layout for a workspace:
+
+总之，下面我们给了一个workspace的结构：
 
 	com.acme.prime/                     workspace
 	  cnf/                              configuration/setup
@@ -31,7 +51,7 @@ Overall, this gives us the following layout for a workspace:
         build.bnd                       organization setup
         plugins/                        directory for plugins
         cache/                          bnd cache directory, should not be saved in an scm
-      com.acme.prime.speaker/           project directory	  
+      com.acme.prime.speaker/           project directory
 
 ### Workspace Properties
 
