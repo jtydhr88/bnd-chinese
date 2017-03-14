@@ -26,7 +26,7 @@
  * Project([@Terry](https://github.com/jtydhr88/))
  * Setup([@Terry](https://github.com/jtydhr88/))
  * Changing the Layout([@Terry](https://github.com/jtydhr88/))
-5. Guided Tour Workspace & Projects
+5. [Guided Tour Workspace & Projects](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/125-tour-features.md)
  * Guided Tour Workspace & Projects(Joye)
  * Wrapping(Joye)
  * Simplistic(Joye)
@@ -53,14 +53,14 @@
  * System Commands(Joye)
  * Upto(Joye)
  * Workflow(Joye)
-6. Concepts
+6. [Concepts](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/130-concepts.md)
  * Concepts(Joye)
  * Bundles(Joye)
  * Components(Joye)
  * The Workspace(Joye)
-7. Best practices
- * Workspace(Terry)
-8. Build
+7. [Best practices](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/140-best-practices.md)
+ * Workspace([@Terry](https://github.com/jtydhr88/))
+8. [Build](https://github.com/jtydhr88/bnd-chinese/blob/master/_chapters/150-build.md)
  * Workspace Properties([@Terry](https://github.com/jtydhr88/))
  * Extension Files([@Terry](https://github.com/jtydhr88/))
  * Local customizations([@Terry](https://github.com/jtydhr88/))
