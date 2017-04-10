@@ -1,14 +1,20 @@
 ---
-order: 160
-title: Generating JARs
-layout: default
+# 9 Generating JARs 生成JAR包
 ---
 
 This is about generating JARs
 
+这章的主要内容是如何利用bnd生成JAR包
+
 This is a simple example of wrapping a jar with bnd. The basic idea is to create a recipe (a .bnd file) that collects the different resources in the right way.
 
+下面是一个简单的例子，它将阐述如何用bnd打JAR包。
+
 For example, you want to wrap the WebSocket server from https://github.com/TooTallNate/Java-WebSocket. Download the binary and the sources in Websocket.jar, Websocket-src.zip. Once you have these files, the following code will create the org.websocket bundle
+
+例如，你想打包https://github.com/TooTallNate/Java-WebSocket上的WebSocket服务器。下载Websocket.jar和Websocket-src.zip文件，下面的代码将帮助你创建org.websocket bundle。
+
+
 
     # Wrapped version of Github project TooTallNate/Java-WebSocket
     Bundle-SymbolicName: org.websocket
@@ -38,14 +44,18 @@ The `Include-Resource` statement unrolls the jars we downloaded in the root of t
 
 The binaries and sources are not in the final jar but bnd does not yet know what needs to be exported. This can be indicated with the `-exportcontents` instruction. It has the same syntax as `Export-Package` but does not copy from the classpath, it only applies the instruction to the content of the final JAR.
 
-## Project
+## 9.1 Project 项目
 The easiest way to build these wrappers is to create a project in bndtools called wrappers and create a bnd descriptor for each one. They are then automatically build (look in generated) and you get a lot of help editing the bnd files.
+
+打包最简单的方法是用bndtoola创建一个项目，然后在这个项目中创建一个bnd描述文件。它就会自动进行构建并打包，同时用bndtools还可以很方便地编辑bnd文件。
 
 You can also make an ant file but this is not described here (volunteer?). The other possibility is to use bnd from the [[CommandLine]]. In this case the command is:
 
+你也可以选着在项目中加一个ant文件，但是在这里就不细说了。另一种可能的做法是在命令行使用bnd打包。上面的例子可以使用如下命令：
+
     bnd websocket.bnd
 
-## Manifest
+## 9.2 Manifest 清单
 Applying this recipe gives the following manifest in a JAR named `org.websocket.jar`:
 
     Manifest-Version: 1.0
@@ -71,7 +81,7 @@ Applying this recipe gives the following manifest in a JAR named `org.websocket.
      t.framing
     Tool: Bnd-1.51.0
 
-## Extra entries on the Classpath
+## 9.3 Extra entries on the Classpath 类路径
 One of the great features of bnd is to use export version from other versions to generate the import ranges. This feature requires that the other JARs are on the classpath. In bndtools you can use the -buildpath. However, you always add entries on the class path per bnd descriptor with the -classpath instruction:
 
     -classpath: dependency.jar, other.jar
